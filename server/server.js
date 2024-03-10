@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const MONGO_URL = 'mongodb+srv://Joshiparth1964:Parth2004@artgallery.xiz8kt8.mongodb.net/?retryWrites=true&w=majority&appName=ArtGallery'; // Replace with your MongoDB URL
+const MONGO_URL = 'mongodb+srv://abcd:abcd@cluster0.botgzty.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Replace with your MongoDB URL
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -22,7 +22,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDb connection error:'));
 
 // Register endpoint
-app.post('/api/signup', async (req, res) => {
+app.post('/api/signin', async (req, res) => {
   const { username, email, password, firstName, lastName, mobileNumber, gender, dateOfBirth } = req.body;
 
   try {
@@ -45,7 +45,7 @@ app.post('/api/signup', async (req, res) => {
 });
 
 // Login endpoint
-app.post('/api/login', async (req, res) => {
+app.post('/api/singin', async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
